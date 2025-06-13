@@ -53,6 +53,8 @@ public class LambdaMain {
         LengthInterface lengthInterface = String::length;
 
         System.out.println(lengthInterface.lengthString("Ankit"));
+
+        System.out.println("String length :- " + lengthInterface.lengthString("Ankit kumar"));
     }
 
 }
