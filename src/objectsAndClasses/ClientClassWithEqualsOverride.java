@@ -16,7 +16,6 @@ public class ClientClassWithEqualsOverride {
         return prime * result * id;
     }
 
-
     @Override
     public boolean equals(Object obj) {
 
