@@ -9,9 +9,9 @@ public class ClientMain {
 
         ClientClassWithoutEqualsOverride clientWithoutEquals2 = clientWithoutEquals;
 
-        System.out.println(clientWithoutEquals == clientWithoutEquals1); // false(It is comparing objects)
+        System.out.println(clientWithoutEquals == clientWithoutEquals1); // false(It is comparing objects references)
 
-        System.out.println(clientWithoutEquals.equals(clientWithoutEquals1)); // false Here equals compare the objects not the values.
+        System.out.println(clientWithoutEquals.equals(clientWithoutEquals1)); // false Here equals compare the objects references not the values.
 
         System.out.println(clientWithoutEquals.equals(clientWithoutEquals2)); // true(pointing to the same object)
 
@@ -26,7 +26,7 @@ public class ClientMain {
 
         System.out.println(clientWithEquals == clientWithEquals1); // false
 
-        System.out.println(clientWithEquals.equals(clientWithEquals1)); // true
+        System.out.println(clientWithEquals.equals(clientWithEquals1)); // true (instead of comparing object references, it is comparing values.)
 
         System.out.println(clientWithEquals.equals(clientWithEquals2)); // true
 
