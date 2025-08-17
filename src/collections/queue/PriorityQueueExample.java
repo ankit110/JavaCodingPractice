@@ -1,5 +1,6 @@
 package collections.queue;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class PriorityQueueExample {
@@ -24,6 +25,22 @@ public class PriorityQueueExample {
 
         priorityQueue.poll();
         System.out.println(priorityQueue);
+
+        Comparator<Integer> reverseComparator = new Comparator<Integer>() {
+            public int compare(Integer param1, Integer param2) {
+                return param2 - param1;
+            }
+        };
+
+        PriorityQueue<Integer> priorityQueue1 = new PriorityQueue<>(reverseComparator);
+
+        priorityQueue1.offer(21);
+        priorityQueue1.offer(32);
+        priorityQueue1.offer(20);
+        priorityQueue1.offer(43);
+        priorityQueue1.offer(31);
+
+        System.out.println(priorityQueue1.peek());
     }
 
 }
