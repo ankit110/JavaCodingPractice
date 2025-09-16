@@ -47,7 +47,6 @@ public class LambdaExpressionTest {
 //        number -> (number&1) != 0 --> Lambda expression
 //        Integer::sum --> Method Reference
 
-
         // so we go for Functional Programming and write codes which does not have state then we would be able
         // to scale them up very easily, so we can run them in multiple threads very easily.
         // that's the main advantage of functional programming
