@@ -42,10 +42,10 @@ public class StreamMain {
         System.out.println("filteredEvenInteger: " + filteredEvenInteger);
 
         List<Integer> numberGreaterThanTen = listOfIntegers.stream().filter(i -> {
-            return (i & 1) == 0;
+            return (i > 10);
         }).collect(Collectors.toList());
 
-        List<Integer> numberGreaterThanTen1 = listOfInteger2.stream().filter(i -> (i & 1) == 0).collect(Collectors.toList());
+        List<Integer> numberGreaterThanTen1 = listOfInteger2.stream().filter(i -> (i > 10)).collect(Collectors.toList());
 
         System.out.println("numberGreaterThanTen: " + numberGreaterThanTen);
 
