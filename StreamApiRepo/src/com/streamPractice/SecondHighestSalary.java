@@ -8,6 +8,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/* ❓ Next Interview Question:
+
+Write Java 8 code to find the second-highest salary among all employees in the list.
+
+👉 Follow-up (if you solve it fast):
+How would you extend this to find the N-th highest salary? */
+
 public class SecondHighestSalary {
 
     public static void main(String[] args) {
