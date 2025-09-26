@@ -1,10 +1,10 @@
 package exception;
 
 import exception.customexceptionclasses.DivisionByZeroException;
+import exception.customexceptionclasses.FileMissingException;
 import exception.customexceptionclasses.InvalidAgeException;
-import exception.interview.AgeValidation;
-import exception.interview.ArithmeticCalculation;
-import exception.interview.ParseInteger;
+import exception.customexceptionclasses.TransactionFailedException;
+import exception.interview.*;
 
 // custom exception chaining and logging.
 
@@ -43,6 +43,23 @@ public class CheckedAndUncheckedExceptionMain {
 
 //        String res = AgeValidation.validateAge(17); // Exception in thread "main"
         // exception.customexceptionclasses.InvalidAgeException: Age must be 18 or above.
+// --------------------------------------------------------------------------------------------------------
+
+        try {
+            String res = ReadFile.readFile(null);
+
+            System.out.println(res);
+        } catch(FileMissingException ex) {
+            System.out.println("Exception caught:- " + ex.getMessage());
+        }
+
+        try {
+            String res = Transactions.processTransaction(100);
+            System.out.println(res);
+        } catch(TransactionFailedException ex) {
+            System.out.println("Custom message:- " + ex.getMessage());
+            System.out.println("Root cause:- " + ex.getCause());
+        }
 
     }
 }

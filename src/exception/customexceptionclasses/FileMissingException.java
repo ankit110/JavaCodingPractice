@@ -1,11 +1,10 @@
 package exception.customexceptionclasses;
 
-public class InvalidAgeException extends RuntimeException {
+public class FileMissingException extends Exception {
 
     private String message;
 
-    public InvalidAgeException(String message) {
-//        super(message);
+    public FileMissingException(String message) {
         this.message = message;
     }
 
