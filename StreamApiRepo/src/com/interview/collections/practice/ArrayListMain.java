@@ -1,9 +1,8 @@
 package com.interview.collections.practice;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ArrayListMain {
 
@@ -62,6 +61,49 @@ public class ArrayListMain {
         list.sort(Comparator.comparing(String::length));
         System.out.println("Sort using length:- " + list);
 
+//----------------Copy One Arraylist to another---------------------
+        List<String> list1 = new ArrayList<>();
+        list1.add("A");
+        System.out.println("List1:- " + list1);
+        Collections.copy(list, list1);
+        System.out.println("List1:- " + list1);
+        System.out.println("Copied List:- " + list);
+        Collections.copy(list, List.of("Red"));
+        System.out.println("List:- " + list);
+
+//--------------------Shuffle Arraylist-------------------------------
+        Collections.shuffle(list);
+        System.out.println("Shuffled List:- " + list);
+//---------------------Reverse ArrayList------------------------
+        Collections.reverse(list);
+        System.out.println("Reversed Array:- " + list);
+
+//--------------------Extract Sublist from ArrayList----------------
+        List<String> sub_list = list.subList(0, 2);
+        System.out.println("Sublist:- " + sub_list);
+        System.out.println("List:- " + list);
+//-----------------------Rotate List------------------
+/*        Collections.rotate(list, distance) shifts the elements.
+          Positive value → rotate to right.
+          Negative value → rotate to left.
+          -2 means shift everything 2 places left (start from index 2). */
+
+        //----------------Rotate Left----------------
+        Collections.rotate(list, -2);
+        System.out.println("Rotated List to left:- " + list);
+
+        Collections.rotate(list, 2);
+        System.out.println("Rotated List to Right:- " + list);
+
+        //---------------Using Streams-----------------
+        int rotateBy = 2;
+
+        List<String> rotated = Stream.concat(
+            list.stream().skip(rotateBy),  // skip first 2 elements
+            list.stream().limit(rotateBy)  // take first 2 elements and put at the end
+        ).collect(Collectors.toList());
+
+        System.out.println(rotated);
 
     }
 
