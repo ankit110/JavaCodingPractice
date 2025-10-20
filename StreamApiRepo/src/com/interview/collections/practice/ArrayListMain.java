@@ -1,12 +1,14 @@
 package com.interview.collections.practice;
 
+import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class ArrayListMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         List<String> list = ArrayListPractice.list;
         System.out.println(ArrayListPractice.list);
 
@@ -97,14 +99,98 @@ public class ArrayListMain {
 
         //---------------Using Streams-----------------
         int rotateBy = 2;
+        int size = list.size();
+        int shift = ((rotateBy % size) + size) % size; // normalize to handle negative or large values safely.
+
 
         List<String> rotated = Stream.concat(
-            list.stream().skip(rotateBy),  // skip first 2 elements
-            list.stream().limit(rotateBy)  // take first 2 elements and put at the end
+            list.stream().skip(shift),  // skip first 2 elements
+            list.stream().limit(shift)  // take first 2 elements and put at the end
         ).collect(Collectors.toList());
 
-        System.out.println(rotated);
+        System.out.println("rotated:- " + rotated);
 
+        System.out.println("Original List:- " + list);
+
+        List<String> rotates = IntStream.range(0, size)
+            .mapToObj(i -> {
+                String val = list.get((i + shift) % size);
+                System.out.println("index:- " + i + "-> " + val);
+                return val;
+            })
+            .collect(Collectors.toList());
+
+        System.out.println("Rotates:- " + rotates);
+
+//-----------------------------Compare Two ArrayList--------------------------
+
+        List<String> compareList = new ArrayList<>(List.of("Red", "Black", "Blue", "Green", "White"));
+
+        List<String> resultList = new ArrayList<>();
+
+        System.out.println("Original lIst:- " + list);
+        System.out.println("CompareList:- " + compareList);
+        for(String color : list) {
+            resultList.add(compareList.contains(color) ? "Yes" : "No");
+        }
+
+        System.out.println("Resultant List" + resultList);
+
+//--------------------------- Swap ArrayList Elements------------------------------
+        System.out.println("Original List before swapping:- " + list);
+
+        Collections.swap(list, 0, 2);
+
+        System.out.println("List after swapping" + list);
+
+        String temp = list.get(0);
+        list.set(0, list.get(2));
+        list.set(2, temp);
+        System.out.println("List swapping using temp:- " + list);
+
+//---------------------Join Two ArrayLists---------------------------
+        List<String> listToJoin = new ArrayList<>(List.of("Hello", "World", "Of", "Colors"));
+
+        List<String> resultJoinList = new ArrayList<>();
+
+        resultJoinList.addAll(list);
+        resultJoinList.addAll(listToJoin);
+        System.out.println("Result of Join List:- " + resultJoinList);
+
+//------------------------Clone ArrayList------------------------
+//        ArrayList<String> cloneList = new ArrayList<>();
+//        List<String> lists = new ArrayList<>(List.of("Hello", "World", "Of", "Colors"));
+//        cloneList = (ArrayList<String>) lists.clone();
+
+        ArrayList<String> lists = (ArrayList<String>) Stream.of("Red", "Blue","Black", "ankit", "white", "Yellow", "Pink", "Violet")
+            .collect(Collectors.toList());
+
+        ArrayList<String> clone = (ArrayList<String>) lists.clone();
+
+        System.out.println("Cloned Array:- " + clone);
+
+//--------------------------Clear ArrayList------------------
+        clone.clear();
+        System.out.println("Cloned array after clear:- " + clone);
+//-------------------------Check ArrayList is empty----------------------------
+
+        if(lists.isEmpty()) {
+            System.out.println("Lists is Empty.");
+        } else {
+            System.out.println("Lists not Empty.");
+        }
+
+        if(clone.isEmpty()) {
+            System.out.println("Clone Array is Empty");
+        } else {
+            System.out.println("Clone Array is not Empty.");
+        }
+
+//------------------Trim ArrayList------------------
+        lists.trimToSize();
+        System.out.println("Lists after trim:- " + lists);
+        lists.ensureCapacity(5);
+        System.out.println(lists);
     }
 
 }
