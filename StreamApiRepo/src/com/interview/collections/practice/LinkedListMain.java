@@ -1,5 +1,6 @@
 package com.interview.collections.practice;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -68,6 +69,41 @@ public class LinkedListMain {
         } else {
             System.out.println("Not Found.");
         }
+
+        for(int i = 0; i < list.size(); i++) {
+            System.out.println("Name:- " + list.get(i) + " at index:- " + i);
+        }
+//----------------------Remove element------------------------
+        System.out.println(list.remove("Singh"));
+        System.out.println(list);
+
+//----------------------Remove first and last Element---------------
+        System.out.println(list.removeFirst());
+        System.out.println(list);
+
+        System.out.println(list.removeLast());
+        System.out.println(list);
+
+        LinkedList<String> new_lists = (LinkedList<String>) list.clone();
+
+        System.out.println(new_lists);
+        new_lists.clear();
+        System.out.println(new_lists);
+        System.out.println(list);
+//-----------------------Swap Elements------------------------
+        Collections.swap(list, 2, 4);
+        System.out.println(list);
+
+//------------------------Shuffle Elements---------------------
+        Collections.shuffle(list);
+        System.out.println(list);
+
+//---------------------------Join two list-------------------
+        new_lists = new LinkedList<>(List.of("Ravi", "Harsh", "Shailesh", "Avinash"));
+        new_lists.addAll(list);
+
+        System.out.println(new_lists);
+
 
     }
 }
