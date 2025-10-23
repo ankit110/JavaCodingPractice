@@ -1,9 +1,6 @@
 package com.interview.collections.practice;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class LinkedListMain {
 
@@ -103,7 +100,56 @@ public class LinkedListMain {
         new_lists.addAll(list);
 
         System.out.println(new_lists);
+//-----------------remove and return the first element-----------------------
+        System.out.println("Removed first element:- " + new_lists.pop());
 
+        System.out.println("New Lists after pop() operation:- " + new_lists);
+//------------retrieve, but not remove, the first element------------------------
+        System.out.println("Return First Element:- " + new_lists.peek());
+        System.out.println("Return First Element:- " + new_lists.peekFirst());
+        System.out.println("Return Last Element:- " + new_lists.peekLast());
+        System.out.println(new_lists);
+//-------------------check if a particular element exists-----------------------
+        if(new_lists.contains("Avinash")) {
+            System.out.println("Object Found in List.");
+        } else {
+            System.out.println("Object Not Found in List.");
+        }
+
+//---------------- convert a linked list to an array list-------------------------
+
+        List<String> arrayList = new ArrayList<>(list);
+        System.out.println("Converted ArrayList using linkedList passed in Constructor:- " + arrayList);
+
+        arrayList.clear();
+
+        arrayList.addAll(list);
+
+        System.out.println("Converted ArrayList using addAll method:- " + arrayList);
+
+//--------------------Compare two LinkedList-------------
+        LinkedList<Boolean> comparedListElement = new LinkedList<>();
+
+        for(String name: list) {
+            comparedListElement.add(new_list.contains(name) ? true : false);
+        }
+
+        System.out.println(list);
+        System.out.println(new_list);
+        System.out.println(comparedListElement);
+
+//----------------check if a linked list is empty or not------------------------------
+
+        if(list.isEmpty()) {
+            System.out.println("List is empty.");
+        } else {
+            System.out.println("List is not Empty.");
+        }
+
+//-----------------replace an element in a linked list-------------------
+
+        new_list.set(0, "Ankit");
+        System.out.println("New List:- " + new_list);
 
     }
 }
