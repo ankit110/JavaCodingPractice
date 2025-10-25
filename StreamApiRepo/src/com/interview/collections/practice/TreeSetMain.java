@@ -66,6 +66,7 @@ public class TreeSetMain {
         } else {
             System.out.println("Not Equal.");
         }
+//-------------------Elements Less Than 7 in TreeSet----------------------
 
         TreeSet<Integer> numbers = new TreeSet<>(List.of(1, 4, 3, 6, 9, 7, 2, 8, 10));
 
@@ -74,5 +75,24 @@ public class TreeSetMain {
         SortedSet<Integer> numbersLessThan7 = numbers.headSet(7);
 
         System.out.println("Numbers less than 7:- " + numbersLessThan7);
+
+        Integer numberLowerThan7 = numbers.lower(7);
+
+        System.out.println("Number lower than 7:- " + numberLowerThan7);
+//--------------Ceiling Element---------------
+
+        System.out.println("Number which is ceil:- " + numbers.ceiling(5));
+        System.out.println("Number which is Floor:- " + numbers.floor(5));
+//------element in a tree set strictly greater/lower than or equal to the given element.-----------
+        System.out.println("TreeSet Higher Element:- " + numbers.higher(9));
+        System.out.println("Treeset Lower Element:- " + numbers.lower(9));
+//--------------------Poll Elements------------------------
+        System.out.println("Numbers:- " + numbers);
+        numbers.pollFirst();
+        System.out.println("Numbers poll first:- " + numbers);
+        numbers.pollLast();
+        System.out.println("Numbers poll Last:- " + numbers);
+        numbers.remove(7);
+        System.out.println("Numbers after removal of 7:- " + numbers);
     }
 }
