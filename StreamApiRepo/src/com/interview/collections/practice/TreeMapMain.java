@@ -84,6 +84,15 @@ public class TreeMapMain {
         System.out.println("Least Key:- " + map.lastEntry());
 //-----------------------Get Reverse View of TreeMap Keys-------------------------
         System.out.println("Reverse view for Keyset:- " + map.descendingKeySet());
+
+//----------------------- Get Mapping with Floor Key---------------------------------
+        System.out.println("Floor Entry of 1:- " + map.floorEntry(1));
+        System.out.println("Floor Entry of 2:- " + map.floorEntry(2));
+        System.out.println("Floor Entry of 5:- " + map.floorEntry(5));
+//---------------------Get Floor Key in TreeMap--------------------
+        System.out.println("Floor Key for 1:- " + map.floorKey(1));
+        System.out.println("Floor Key for 2:- " + map.floorKey(2));
+        System.out.println("Floor Key for 6:- " + map.floorKey(6));
     }
 }
 
