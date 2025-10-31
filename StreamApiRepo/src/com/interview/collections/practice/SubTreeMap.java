@@ -2,7 +2,7 @@ package com.interview.collections.practice;
 
 import java.util.*;
 import java.util.Map.Entry;  
-public class Example22 {  
+public class SubTreeMap {
            public static void main(String args[]) {
 
   // Declare tree maps
