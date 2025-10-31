@@ -33,6 +33,43 @@ public class PallindromeCheck {
         }
 
         return true;
+
+//---------------------------Using String Builder---------------------------------
+
+       /* StringBuilder str = new StringBuilder();
+
+        for(int i = 0; i < s.length(); i++) {
+            if (Character.isLetterOrDigit(s.charAt(i))) {
+                str.append(Character.toLowerCase(s.charAt(i)));
+            }
+        }
+
+        int i = 0;
+        int j = str.length() - 1;
+
+        while(i <= j) {
+            if(str.charAt(i) != str.charAt(j)) {
+                return false;
+            }
+
+            i++;
+            j--;
+        }
+
+        return true; */
+
+//--------------------------Without using any Extra space SpaceComplexity -> O(1)--------------------
+
+       /* int l = 0, r = s.length()-1;
+        while(l<r) {
+            // Move left pointer until we find a letter or digit
+            while(l<r && !Character.isLetterOrDigit(s.charAt(l))) l++;
+            // Move right pointer until we find a letter or digit
+            while(l<r && !Character.isLetterOrDigit(s.charAt(r))) r--;
+            // Compare both chars (in lowercase)
+            if(Character.toLowerCase(s.charAt(l++)) != Character.toLowerCase(s.charAt(r--))) return false;
+        }
+        return true; */
     }
 
 }
